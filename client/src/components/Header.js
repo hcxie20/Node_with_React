@@ -5,10 +5,10 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom"
 import Payments from "./Payments"
 
-serverpath = serverPath()
 
 class Header extends Component {
     renderContext() {
+        const serverpath = serverPath()
         console.log(this.props.auth)
         switch(this.props.auth){
             case null:
