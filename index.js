@@ -44,6 +44,16 @@ if (process.env.NODE_ENV === "Production") {
     })
 }
 
+// ===================== ? =====================
+if (process.env.NODE_ENV === "Test") {
+    console.log("Test mode")
+    app.use(express.static("client"));
+    const path = require("path");
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "client", "src", "index.html"));
+    })
+}
+
 
 // ===================== Listening =====================
 const PORT = process.env.PORT || 5000

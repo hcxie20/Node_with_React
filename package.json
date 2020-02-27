@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "export NODE_ENV=Production && node index.js",
+    "test": "export NODE_ENV=Test && node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
