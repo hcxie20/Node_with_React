@@ -5,6 +5,8 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom"
 import Payments from "./Payments"
 
+serverpath = serverPath()
+
 class Header extends Component {
     renderContext() {
         console.log(this.props.auth)
@@ -12,12 +14,12 @@ class Header extends Component {
             case null:
                 return null
             case false:
-                return <Nav.Link href="/auth/google">Login With Google</Nav.Link>
+                return <Nav.Link href={serverpath + "/auth/google"}>Login With Google</Nav.Link>
             default:
                 return [
                     <Nav.Link href="#" key="payments"><Payments /></Nav.Link>,
                     <Nav.Link href="#" key="credits" className="my-auto">Credits: {this.props.auth.credits}</Nav.Link>,
-                    <Nav.Link href="/api/logout" key="logout" className="my-auto">Logout</Nav.Link>
+                    <Nav.Link href={serverpath + "/api/logout"} key="logout" className="my-auto">Logout</Nav.Link>
                 ]
         }
     }
@@ -39,6 +41,11 @@ class Header extends Component {
             </Navbar>
         )
     }
+}
+
+function serverPath() {
+    const server_path = (process.env.NODE_ENV === "production")? "/app":""
+    return server_path
 }
 
 function mapStateToProps({auth}) {
