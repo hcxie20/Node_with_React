@@ -14,12 +14,13 @@ module.exports = function(app) {
 
     app.get("/api/logout", (req, res) => {
         req.logout()
-        res.send(req.user)
+        res.redirect("/")
     })
 
-    app.get("/auth/google/callback", passport.authenticate("google", {failureRedirect: "/auth/google"}), 
-    function(req, res) {
-        res.send("Loged in")
-    })
+    app.get("/auth/google/callback", passport.authenticate("google"), 
+    (req, res) => {
+        res.redirect("/surveys")
+    }
+    )
 
 }
