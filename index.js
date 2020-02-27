@@ -9,7 +9,6 @@ const billingRoutes = require("./routes/billingRoutes")
 require("./models/User")
 require("./services/passport")
 
-
 const app = express()
 
 // ===================== app configure =====================
@@ -32,13 +31,16 @@ mongoose.connect(keys.mongoURI)
 authRouthes(app)
 billingRoutes(app)
 
+// ===================== Routes configure =====================
+console.log(process.env.NODE_ENV)
 
 // ===================== ? =====================
 if (process.env.NODE_ENV === "Production") {
+    console.log("Production mode")
     app.use(express.static("client/build"));
     const path = require("path");
-    agg.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
     })
 }
 
