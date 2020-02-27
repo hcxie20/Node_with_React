@@ -20,7 +20,8 @@ module.exports = function(app) {
 
     app.get("/auth/google/callback", passport.authenticate("google"), 
     (req, res) => {
-        const url = "http://localhost" + serverPath() + "/surveys"
+        console.log(serverPath())
+        const url = serverPath() + "/surveys"
         res.redirect(url)
     }
     )
