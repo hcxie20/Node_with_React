@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/app",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
@@ -17,7 +18,8 @@
     "react-scripts": "3.4.0",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "serve": "^11.3.0"
   },
   "scripts": {
     "start": "PORT=4999 react-scripts start",
