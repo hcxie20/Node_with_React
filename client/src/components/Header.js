@@ -9,7 +9,7 @@ import Payments from "./Payments"
 class Header extends Component {
     renderContext() {
         const serverpath = serverPath()
-        console.log(this.props.auth)
+        // console.log(this.props.auth)
         switch(this.props.auth){
             case null:
                 return null
@@ -24,10 +24,11 @@ class Header extends Component {
         }
     }
     render() {
-        console.log(this.props)
+        const serverpath = serverPath()
+        // console.log(this.props)
         return (
             <Navbar bg="dark" variant="dark" expand="lg">
-            <Link to={this.props.auth ? "/surveys" : "/"}>
+            <Link to={this.props.auth ? serverPath+"/surveys" : serverPath+"/"}>
                 <Navbar.Brand>
                     React-Bootstrap
                 </Navbar.Brand>

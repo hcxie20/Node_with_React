@@ -1,4 +1,5 @@
 const passport = require("passport")
+const serverPath = require("./serverRoutes")
 
 module.exports = function(app) {
     app.get("/auth/google", passport.authenticate("google", 
@@ -14,12 +15,12 @@ module.exports = function(app) {
 
     app.get("/api/logout", (req, res) => {
         req.logout()
-        res.redirect("/")
+        res.redirect(serverPath() + "/")
     })
 
     app.get("/auth/google/callback", passport.authenticate("google"), 
     (req, res) => {
-        res.redirect("/surveys")
+        res.redirect(serverPath() + "/surveys")
     }
     )
 
