@@ -20,9 +20,9 @@ module.exports = function(app) {
 
     app.get("/auth/google/callback", passport.authenticate("google"), 
     (req, res) => {
-        console.log(serverPath())
         const url = serverPath() + "/surveys"
-        res.redirect(url)
+        console.log(url)
+        // res.redirect(url)
     }
     )
 
