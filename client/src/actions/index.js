@@ -1,15 +1,15 @@
 import axios from "axios"
 import {FETCH_USER} from "./types"
 
-// const uri = if (process.env.NODE_ENV === "Production")
+const server_path = (process.env.NODE_ENV === "Production")? "/app":""
 
 export const fetchUser = () => async (dispatch) => {
-        const res = await axios.get("/api/current_user")
+        const res = await axios.get(server_path + "/api/current_user")
         dispatch({type: FETCH_USER, payload: res.data})
     }
 
 export const handleToken = (token) => async (dispatch) => {
-    const res = await axios.post("/api/stripe", token)
+    const res = await axios.post(server_path + "/api/stripe", token)
 
     dispatch({type: FETCH_USER, payload: res.data})
 }
