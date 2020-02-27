@@ -11,8 +11,8 @@ require("./services/passport")
 
 
 const app = express()
-// ===================== app configure =====================
 
+// ===================== app configure =====================
 app.use(bodyParser.json())
 app.use(
     cookieSession({
@@ -28,8 +28,21 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.connect(keys.mongoURI)
 
+// ===================== Routes configure =====================
 authRouthes(app)
 billingRoutes(app)
 
+
+// ===================== ? =====================
+if (process.env.NODE_ENV === "Production") {
+    app.use(express.static("client/build"));
+    const path = require("path");
+    agg.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    })
+}
+
+
+// ===================== Listening =====================
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
