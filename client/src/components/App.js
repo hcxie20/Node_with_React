@@ -22,8 +22,8 @@ class App extends Component {
                         <Header />
                         <div className="container mt-2">
                             <Route exact={true} path="/" component={Landing} />
-                            <Route exact={true} path="/surveys" component={Dashboard} />
-                            <Route path="/surveys/new" component={SurveyNew} />
+                            <Route exact={true} path={serverPath() + "/surveys"} component={Dashboard} />
+                            <Route path={serverPath() + "/surveys/new" }component={SurveyNew} />
                             <Route path="/app" component={test} />
 
                         </div>
@@ -32,6 +32,11 @@ class App extends Component {
             </div>
         )
     } 
+}
+
+function serverPath() {
+    const server_path = (process.env.NODE_ENV === "production")? "/app":""
+    return server_path
 }
 
 export default connect(null, actions)(App)
