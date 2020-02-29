@@ -9,7 +9,7 @@ import Header from "./Header"
 import Landing from "./Landing"
 import Dashboard from "./Dashboard"
 import SurveyNew from "./surveys/SurveyNew"
-import test from "./test"
+// import test from "./test"
 
 class App extends Component {
     componentDidMount() {
