@@ -19,7 +19,7 @@ module.exports = function(app) {
 
     app.get("/auth/google/callback", passport.authenticate("google"), 
     (req, res) => {
-        const url = (process.env.NODE_ENV === "Production")? "http://ec2-52-9-149-3.us-west-1.compute.amazonaws.com"+ serverPath() + "/survey": "/survey";
+        const url = (process.env.NODE_ENV === "Production")? "http://ec2-52-9-149-3.us-west-1.compute.amazonaws.com"+ serverPath() + "/surveys": "/surveys";
         res.redirect(url);
     }
     )
