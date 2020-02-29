@@ -3,6 +3,8 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 
+import serverPath from "./surverPath"
+
 import Header from "./Header"
 import Landing from "./Landing"
 import Dashboard from "./Dashboard"
@@ -21,7 +23,7 @@ class App extends Component {
                     <div>
                         <Header />
                         <div className="container mt-2">
-                            <Route exact={true} path="/" component={Landing} />
+                            <Route exact={true} path={serverPath() + "/"} component={Landing} />
                             <Route exact={true} path={serverPath() + "/surveys"} component={Dashboard} />
                             <Route path={serverPath() + "/surveys/new" }component={SurveyNew} />
                             {/* <Route path="/app" component={test} /> */}
@@ -32,11 +34,6 @@ class App extends Component {
             </div>
         )
     } 
-}
-
-function serverPath() {
-    const server_path = (process.env.NODE_ENV === "production")? "/app":""
-    return server_path
 }
 
 export default connect(null, actions)(App)
