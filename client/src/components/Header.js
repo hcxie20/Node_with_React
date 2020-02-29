@@ -25,20 +25,19 @@ class Header extends Component {
     }
     render() {
         const serverpath = serverPath()
+        // const logo_url = (this.props.auth)? serverpath+"/surveys" : serverpath+"/"
         // console.log(this.props)
         return (
             <Navbar bg="dark" variant="dark" expand="lg">
-            <Link to={this.props.auth ? serverPath+"/surveys" : serverPath+"/"}>
-                <Navbar.Brand>
-                    React-Bootstrap
-                </Navbar.Brand>
-            </Link>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    {this.renderContext()}
-                </Nav>
-            </Navbar.Collapse>
+                <Link to={(this.props.auth)? serverpath+"/surveys" : serverpath+"/"}>
+                    <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+                </Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        {this.renderContext()}
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
         )
     }

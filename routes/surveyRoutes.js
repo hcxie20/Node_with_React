@@ -34,6 +34,7 @@ module.exports = app => {
         console.log("here")
       } catch (err) {
         res.status(422).send(err);
+        console.log(err)
       }
   });
 }
