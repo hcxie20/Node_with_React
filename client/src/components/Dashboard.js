@@ -1,6 +1,8 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
+import SurveyList from "./surveys/SurveyList"
+
 import serverPath from "./surverPath"
 
 import {Button, Row} from "react-bootstrap";
@@ -10,6 +12,7 @@ const Dashboard = () => {
     return (
         <div>
             Dashboard
+            <SurveyList />
             <Row>
                 <Link to={serverPath() + "/surveys/new"} className="ml-auto">
                     <Button style={{borderRadius: "25px"}}>
