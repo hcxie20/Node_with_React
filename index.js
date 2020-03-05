@@ -12,6 +12,7 @@ require("./services/passport")
 const authRouthes = require("./routes/authRoutes")
 const billingRoutes = require("./routes/billingRoutes")
 const surveyRoutes = require("./routes/surveyRoutes")
+const signinRoutes = require("./routes/signinRoutes")
 
 const app = express()
 
@@ -35,6 +36,7 @@ mongoose.connect(keys.mongoURI)
 authRouthes(app)
 billingRoutes(app)
 surveyRoutes(app)
+signinRoutes(app)
 // ===================== Routes configure =====================
 console.log(process.env.NODE_ENV)
 

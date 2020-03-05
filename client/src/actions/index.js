@@ -26,3 +26,18 @@ export const fetchSurveys = () => async dispatch => {
     const res = await axios.get(serverPath() + "/api/surveys");
     dispatch({type: FETCH_SURVEYS, payload: res.data})
 }
+
+export const deleteSurvey = (surveyId) => async dispatch => {
+    await axios.get(serverPath() + "/api/surveys/" + surveyId + "/delete")
+    const res = await axios.get(serverPath() + "/api/surveys");
+    dispatch({type: FETCH_SURVEYS, payload: res.data})
+}
+
+export const submitSignin = (values) => async dispatch => {
+    console.log("Signin action")
+    await axios.get(serverPath() + "/api/signin/", values)
+    // const res = await axios.post(serverPath() + "/api/surveys", values)
+    // history.push(serverPath() + "/surveys")
+    // dispatch({type: FETCH_USER, payload: res.data})
+}
+

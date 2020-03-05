@@ -1,8 +1,8 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
-import {fetchSurveys} from "../../actions"
+import {fetchSurveys, deleteSurvey} from "../../actions"
 
-import {Card, Container} from "react-bootstrap"
+import {Card, Button} from "react-bootstrap"
 
 class SurveyList extends Component {
     componentDidMount() {
@@ -20,13 +20,14 @@ class SurveyList extends Component {
                             {survey.body}
                         </Card.Text>
                         <Card.Text>
-                            <Container className="px-auto">
-                                <Card.Link href="#">Yes:  {survey.yes}</Card.Link>
-                                <Card.Link href="#">No: {survey.no}</Card.Link>
-                            </Container>
+                            <Card.Link href="#">Yes:  {survey.yes}</Card.Link>
+                            <Card.Link href="#">No: {survey.no}</Card.Link>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
+                        <Button onClick={() => this.props.deleteSurvey(survey._id)}>
+                            Delete Survey
+                        </Button>
                         <small className="text-muted float-right">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</small>
                     </Card.Footer>
                 </Card>
@@ -47,4 +48,4 @@ function mapStateToProps(state) {
     return {surveys: state.surveys}
 }
 
-export default connect(mapStateToProps, {fetchSurveys})(SurveyList)
+export default connect(mapStateToProps, {fetchSurveys, deleteSurvey})(SurveyList)

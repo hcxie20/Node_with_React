@@ -50,6 +50,16 @@ module.exports = app => {
     res.send({})
   })
 
+  app.get('/api/surveys/:surveyId/delete', requireLogin, (req, res) => {
+    // console.log(req.params.surveyId)
+    Survey.findByIdAndDelete(req.params.surveyId, (err) => {
+      if(err){
+        console.log(err)
+      }
+    })
+    res.send({})
+  });
+
   app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send("<div>Thank you!<div>")
   });

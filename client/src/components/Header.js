@@ -14,10 +14,11 @@ class Header extends Component {
             case null:
                 return null
             case false:
-                return <Nav.Link href={serverpath + "/auth/google"}>Login With Google</Nav.Link>
+                return <Nav.Link href={serverpath + "/login"}>Login</Nav.Link>
             default:
                 return [
                     <Nav.Link href="#" key="payments"><Payments /></Nav.Link>,
+                    <Nav.Link href={serverPath() + "/surveys"} key="surveys" className="my-auto">Your Surveys</Nav.Link>,
                     <Nav.Link href="#" key="credits" className="my-auto">Credits: {this.props.auth.credits}</Nav.Link>,
                     <Nav.Link href={serverpath + "/api/logout"} key="logout" className="my-auto">Logout</Nav.Link>
                 ]
@@ -30,7 +31,7 @@ class Header extends Component {
         return (
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Link to={(this.props.auth)? serverpath+"/surveys" : serverpath+"/"}>
-                    <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand>Emaily</Navbar.Brand>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

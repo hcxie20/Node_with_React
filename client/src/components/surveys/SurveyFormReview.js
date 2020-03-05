@@ -11,7 +11,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
     const viewFields = _.map(formFields, field => {
         return (
-            <div className="p-2">
+            <div key={field.label} className="p-2">
                 <Row>
                     <div className="text-muted">{field.label}</div>
                 </Row>
