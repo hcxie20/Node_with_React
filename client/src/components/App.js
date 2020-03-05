@@ -3,7 +3,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import * as actions from '../actions'
 
-import serverPath from "./surverPath"
+import serverPath from "./serverPath"
 
 import Header from "./Header"
 import Landing from "./Landing"

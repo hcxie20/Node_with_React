@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 import SurveyList from "./surveys/SurveyList"
 
-import serverPath from "./surverPath"
+import serverPath from "./serverPath"
 
 import {Button, Row} from "react-bootstrap";
 import AddIcon from '@material-ui/icons/Add';
