@@ -11,7 +11,10 @@ import AddIcon from '@material-ui/icons/Add';
 const Dashboard = () => {
     return (
         <div>
-            Dashboard
+            <h1 className="mx-auto">Dashboard</h1>
+            <div>Add credit to your account to use our service!</div>
+            <div>TEST MODE: click on Add Credits, use the credit card number 4242 4242 4242 4242 and any expire time in the future and any cvs.</div>
+
             <SurveyList />
             <Row>
                 <Link to={serverPath() + "/surveys/new"} className="ml-auto">
